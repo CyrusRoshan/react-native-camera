@@ -5,6 +5,7 @@
 package com.lwansbrough.RCTCamera;
 
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.media.CamcorderProfile;
 import android.util.Log;
 
@@ -462,5 +463,14 @@ public class RCTCamera {
             this.width = width;
             this.height = height;
         }
+    }
+
+    // added camera properties info
+    public float getFocalLength () {
+        CameraInfoWrapper cameraInfo = _cameraInfos.get(type);
+        if (null == cameraInfo) {
+            return 0;
+        }
+        return cameraInfo.getParameters().getFocalLength();
     }
 }
