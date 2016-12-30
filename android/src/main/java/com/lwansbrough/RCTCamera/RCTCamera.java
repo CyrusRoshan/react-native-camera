@@ -474,4 +474,27 @@ public class RCTCamera {
 
         return camera.getParameters().getFocalLength();
     }
+
+    // focus camera in center automatically
+    // this function heavily borrows from https://github.com/lwansbrough/react-native-camera/compare/master...mozestudio:master#diff-25ee3e78e249dccb641c7d7086bcd77a
+    public void focusCenter (int type) {
+        Camera camera = _cameras.get(type);
+        if (camera == null) {
+            return;
+        }
+
+        Camera.Parameters parameters = camera.getParameters();
+        CameraInfoWrapper cameraInfo = _cameraInfos.get(type);
+        camera.cancelAutoFocus();
+
+        if (parameters.getFocusMode() != Camera.Parameters.FOCUS_MODE_AUTO) {
+            parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+        }
+
+        if (parameters.getMaxNumFocusAreas() > 0) {
+            List<Camera.Area> mylist = new ArrayList<Camera.Area>();
+            mylist.add(new Camera.Area(Rect(-100, -100, 100, 100), 1000));
+            parameters.setFocusAreas(mylist);
+        }
+    }
 }
