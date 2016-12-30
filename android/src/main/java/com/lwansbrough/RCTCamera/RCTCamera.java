@@ -466,11 +466,12 @@ public class RCTCamera {
     }
 
     // added camera properties info
-    public float getFocalLength () {
-        CameraInfoWrapper cameraInfo = _cameraInfos.get(type);
-        if (null == cameraInfo) {
+    public float getFocalLength (int type) {
+        Camera camera = this.acquireCameraInstance(type);
+        if (null == camera) {
             return 0;
         }
-        return cameraInfo.getParameters().getFocalLength();
+
+        return camera.getParameters().getFocalLength();
     }
 }
