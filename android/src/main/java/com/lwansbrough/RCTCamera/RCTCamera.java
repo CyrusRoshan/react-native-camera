@@ -495,7 +495,7 @@ public class RCTCamera {
 
         if (parameters.getMaxNumFocusAreas() > 0) {
             List<Camera.Area> mylist = new ArrayList<Camera.Area>();
-            mylist.add(new Camera.Area(Rect(-100, -100, 100, 100), 1000));
+            mylist.add(new Camera.Area(new Rect(-100, -100, 100, 100), 1000));
             parameters.setFocusAreas(mylist);
         }
     }
