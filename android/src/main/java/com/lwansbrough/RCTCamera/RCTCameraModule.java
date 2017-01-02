@@ -764,7 +764,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             return;
         }
 
-        RCTCamera.getInstance().focusCenter(options.getInt("type"))
+        RCTCamera.getInstance().focusCenter(options.getInt("type"));
         promise.resolve(true);
     }
 
