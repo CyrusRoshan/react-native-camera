@@ -219,7 +219,7 @@ export default class Example extends React.Component {
             ||
             null
           }
-           <Text style={{backgroundColor: 'white', marginTop: -20}}>{this.camera ? JSON.stringify(this.camera.getFocalLength()) : 'loading'}</Text>
+           <Text style={{backgroundColor: 'white', marginTop: -20}}>{this.camera ? JSON.stringify(this.camera.hasFlash()) : 'loading'}</Text>
           <View style={styles.buttonsSpace} />
           {
               !this.state.isRecording
