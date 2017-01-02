@@ -764,7 +764,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             return;
         }
 
-        RCTCamera.getInstance().focusCenter(options.getInt("type"))
+        RCTCamera.getInstance().focusCenter(options.getInt("type"));
         promise.resolve(true);
     }
 
@@ -776,7 +776,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             return;
         }
 
-        promise.resolve(RCTCamera.getInstance().focusCenter(options.getInt("type")));
+        promise.resolve(RCTCamera.getInstance().getFocalLength(options.getInt("type")));
     }
 
     private Throwable writeDataToFile(byte[] data, File file) {
