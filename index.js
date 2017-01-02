@@ -248,6 +248,27 @@ export default class Camera extends Component {
     }
     return CameraManager.hasFlash();
   }
+
+  focusCenter() {
+    if (Platform.OS === 'android') {
+      const props = convertNativeProps(this.props);
+      return CameraManager.focusCenter({
+        type: props.type
+      });
+    }
+    return CameraManager.focusCenter();
+  }
+
+  getFocalLength() {
+    if (Platform.OS === 'android') {
+      const props = convertNativeProps(this.props);
+      return CameraManager.getFocalLength({
+        type: props.type
+      });
+    }
+    return CameraManager.getFocalLength();
+  }
+
 }
 
 export const constants = Camera.constants;

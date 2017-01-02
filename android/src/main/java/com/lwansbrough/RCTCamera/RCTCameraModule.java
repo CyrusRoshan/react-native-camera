@@ -756,6 +756,29 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
         promise.resolve(null != flashModes && !flashModes.isEmpty());
     }
 
+    @ReactMethod
+    public void focusCenter(ReadableMap options, final Promise promise) {
+        Camera camera = RCTCamera.getInstance().acquireCameraInstance(options.getInt("type"));
+        if (null == camera) {
+            promise.reject("No camera found.");
+            return;
+        }
+
+        RCTCamera.getInstance().focusCenter(options.getInt("type"))
+        promise.resolve(true);
+    }
+
+    @ReactMethod
+    public void getFocalLength(ReadableMap options, final Promise promise) {
+        Camera camera = RCTCamera.getInstance().acquireCameraInstance(options.getInt("type"));
+        if (null == camera) {
+            promise.reject("No camera found.");
+            return;
+        }
+
+        promise.resolve(RCTCamera.getInstance().getFocalLength(options.getInt("type")));
+    }
+
     private Throwable writeDataToFile(byte[] data, File file) {
         try {
             FileOutputStream fos = new FileOutputStream(file);
