@@ -468,6 +468,15 @@ public class RCTCamera {
     }
 
     // added camera properties info
+    public int getZoom (int type) {
+        Camera camera = this.acquireCameraInstance(type);
+        if (null == camera) {
+            return 0;
+        }
+
+        return camera.getParameters().getZoom();
+    }
+
     public float getFocalLength (int type) {
         Camera camera = this.acquireCameraInstance(type);
         if (null == camera) {
@@ -475,6 +484,15 @@ public class RCTCamera {
         }
 
         return camera.getParameters().getFocalLength();
+    }
+
+    public float[] getFocusDistances (int type) {
+        Camera camera = this.acquireCameraInstance(type);
+        if (null == camera) {
+            return 0;
+        }
+
+        return camera.getParameters().getFocusDistances();
     }
 
     // focus camera in center automatically

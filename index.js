@@ -268,6 +268,26 @@ export default class Camera extends Component {
     }
     return CameraManager.getFocalLength();
   }
+
+  getZoom() {
+    if (Platform.OS === 'android') {
+      const props = convertNativeProps(this.props);
+      return CameraManager.getZoom({
+        type: props.type
+      });
+    }
+    return CameraManager.getZoom();
+  }
+
+  getFocusDistances() {
+    if (Platform.OS === 'android') {
+      const props = convertNativeProps(this.props);
+      return CameraManager.getFocusDistances({
+        type: props.type
+      });
+    }
+    return CameraManager.getFocusDistances();
+  }
 }
 
 export const constants = Camera.constants;
