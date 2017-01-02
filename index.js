@@ -268,7 +268,6 @@ export default class Camera extends Component {
     }
     return CameraManager.getFocalLength();
   }
-
 }
 
 export const constants = Camera.constants;

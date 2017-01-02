@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
+  Text,
 } from 'react-native';
 import Camera from 'react-native-camera';
 
@@ -218,6 +219,7 @@ export default class Example extends React.Component {
             ||
             null
           }
+           <Text style={{backgroundColor: 'white', marginTop: -20}}>{this.camera ? JSON.stringify(this.camera.getFocalLength()) : 'loading'}</Text>
           <View style={styles.buttonsSpace} />
           {
               !this.state.isRecording
