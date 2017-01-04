@@ -488,11 +488,13 @@ public class RCTCamera {
 
     public float[] getFocusDistances (int type) {
         Camera camera = this.acquireCameraInstance(type);
+        Float []output = new Float[3];
         if (null == camera) {
-            return 0;
+            return output;
         }
 
-        return camera.getParameters().getFocusDistances();
+        camera.getParameters().getFocusDistances(output);
+        return output;
     }
 
     // focus camera in center automatically
