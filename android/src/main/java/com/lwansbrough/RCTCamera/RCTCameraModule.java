@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 import javax.annotation.Nullable;
 
@@ -798,7 +799,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             return;
         }
 
-        promise.resolve(RCTCamera.getInstance().getFocusDistances(options.getInt("type")));
+        promise.resolve(Arrays.toString(RCTCamera.getInstance().getFocusDistances(options.getInt("type"))));
     }
 
     private Throwable writeDataToFile(byte[] data, File file) {

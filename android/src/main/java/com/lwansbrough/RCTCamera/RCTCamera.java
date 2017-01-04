@@ -488,7 +488,7 @@ public class RCTCamera {
 
     public float[] getFocusDistances (int type) {
         Camera camera = this.acquireCameraInstance(type);
-        Float []output = new Float[3];
+        float []output = new float[3];
         if (null == camera) {
             return output;
         }
